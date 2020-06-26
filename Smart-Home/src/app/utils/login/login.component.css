@@ -1,0 +1,26 @@
+.btn-login {
+    height: 100%;
+    padding: 5px 5px;
+    border-radius: 5px;
+    font-size: 20px
+}
+.btn-login:hover{
+    background-color: cornflowerblue;
+}
+
+input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+.container .modal-body span{
+    font-size: 20px;
+}

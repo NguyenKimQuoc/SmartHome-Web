@@ -1,0 +1,24 @@
+<div class="row">
+    <mat-card class="tp-card col-md-12">
+        <mat-card-header>
+            <mat-card-title>Phơi Đồ</mat-card-title>
+            <mat-slide-toggle [checked]="checked" (change)="changed()">
+                {{slidename}}
+            </mat-slide-toggle>
+        </mat-card-header>
+        <mat-card-content *ngIf="checked">
+            <div class="row">
+                <mat-card class="col-md-6 card-item">
+                    <mat-card-title>
+                        Thời Tiết
+                    </mat-card-title>
+                </mat-card>
+                <mat-card class="col-md-6 card-item">
+                    <mat-card-title>Điều Khiển</mat-card-title>
+                    <mat-card-content>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,0 +1,31 @@
+<!-- Modal -->
+<Button id="btn-login" data-toggle="modal" data-target="#modal-login" class="btn btn-primary btnAddRoom">Login</Button>
+<div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <h3 class="modal-title" id="exampleModalLabel">Login</h3>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <div class="modal-body">
+        <from [formGroup]="userLogin">
+          <span>Username:</span>
+          <input type="email" formControlName="email">
+          <span>Password:</span>
+          <input type="password" formControlName="password">
+        </from>
+        <!-- <span>Username:</span>
+        <input type="email" id="email" name="email">
+        <span>Password:</span>
+        <input type="password" id="password" name="password"> -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="Login()" data-dismiss="modal">Login</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //Modal -->
