@@ -1,0 +1,46 @@
+h1 {
+    font-size: 100px;
+    text-align: center; 
+    margin-top: 10px;
+    color: transparent;
+    background: #666666;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    text-shadow: 0px 10px 3px rgba(255,255,255,0.5);
+}
+
+.btnAddRoom{
+    height: 100%;
+    padding: 5px 5px;
+    border-radius: 5px;
+    font-size: 20px
+}
+
+.btnAddRoom:hover{
+    background-color: cornflowerblue;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+.container .modal-body span{
+    font-size: 20px;
+}
+#ul-room li {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 10px;
+    border: 2px solid cornflowerblue;
+    border-radius: 10px;
+    background-color: beige;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+

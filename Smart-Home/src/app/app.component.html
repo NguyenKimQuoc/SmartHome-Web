@@ -1,0 +1,64 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Smart Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- page home -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/home">Home<span class="sr-only">(current)</span></a>
+          </li>
+      <!-- page room -->
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/room">Room<span class="sr-only">(current)</span></a>
+          </li>
+      <!-- page device -->
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Device
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" routerLink="/device/light">Light</a>
+                  <a class="dropdown-item" routerLink="/device/fan">Fan</a>
+                  <a class="dropdown-item" routerLink="/device/pump">Pump</a>
+              </div>
+            </li>
+        </ul>
+        <!-- Login -->
+        <!-- Modal -->
+        <Button id="btn-login" data-toggle="modal" data-target="#modal-login" class="btn btn-primary btnAddRoom">Login</Button>
+        <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+              <h3 class="modal-title" id="exampleModalLabel">Login</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              </div>
+              <div class="modal-body">
+                <span>Username:</span>
+                <input type="email" id="email" name="email">
+                <span>Password:</span>
+                <input type="password" id="password" name="password">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="Login()">Login</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- //Modal -->
+      
+      
+      
+      
+      </div>
+    </nav>
+</div>
+
+
+<router-outlet></router-outlet>
