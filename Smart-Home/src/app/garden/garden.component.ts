@@ -8,11 +8,11 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'app-water-tree',
-  templateUrl: './water-tree.component.html',
-  styleUrls: ['./water-tree.component.css']
+  selector: 'app-garden',
+  templateUrl: './garden.component.html',
+  styleUrls: ['./garden.component.css']
 })
-export class WaterTreeComponent implements OnInit {
+export class GardenComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) {
     this.formAddDevice = this.formBuilder.group({
@@ -61,23 +61,23 @@ export class WaterTreeComponent implements OnInit {
   },
   {
     "ID": 3,
-    "name": "May bom 2"
+    "name": "May bom 3"
   },
   {
     "ID": 4,
-    "name": "May bom 2"
+    "name": "May bom 4"
   },
   {
     "ID": 5,
-    "name": "May bom 2"
+    "name": "May bom 5"
   },
   {
     "ID": 6,
-    "name": "May bom 2"
+    "name": "May bom 6"
   },
   {
     "ID": 7,
-    "name": "May bom 2"
+    "name": "May bom 7"
   }];
   // test
   drying_devices = [{
@@ -89,18 +89,20 @@ export class WaterTreeComponent implements OnInit {
     "name": "Bat 2"
   }];
 
-  ID = 0;
+  itemDevice: any;
   DeviceCate = '';
   AddDevice() {
     console.warn(this.formAddDevice.controls['name'].value);
     console.log("Add device cho: " + this.DeviceCate)
   }
   // cho biết đang ở thiết bị có ID mấy
-  ChangeID(value) {
-    this.ID = value;
+  ChangeID(value: Object) {
+    console.log(value)
+    this.itemDevice = value;
+    console.log(this.itemDevice);
   }
   // Set các trạng thái tại thiết bị đó(dùng chung cho drying và watering)
-  setSTT(cate) {
-    console.log("Dang o " + cate + " thiet bi: " + this.ID);
+  setSTT(cate: string) {
+    console.log(this.itemDevice);
   }
 }

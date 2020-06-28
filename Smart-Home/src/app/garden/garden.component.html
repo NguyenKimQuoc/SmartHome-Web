@@ -1,0 +1,229 @@
+<div class="container">
+    <h1>GARDEN</h1>
+    <div class="row">
+        <!-- Loop Show Watering Device -->
+        <mat-card class="col-md-6 card-watering">
+            <div class="card-body">
+                <mat-card-header class="row">
+                    <h2 class="col-md-8" style="color: black;text-shadow: 2px 2px 4px rgb(141, 137, 137);">WATERING</h2>
+                    <Button id="addRoom" data-toggle="modal" data-target="#adddevice"
+                        class="btn btn-primary btnAdd col-md-4" (click)="DeviceCate='watering'">Add</Button>
+                </mat-card-header>
+                <mat-card-content>
+                    <ul id="ul-room">
+                        <li class="col-md-12" *ngFor="let item of watering_devices">
+                            <div class="row" data-toggle="modal" data-target="#wateringModal"
+                                (click)="ChangeID(item)">
+                                <div class="col-md-11">
+                                    <div>
+                                        <h2>{{item.name}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </mat-card-content>
+            </div>
+        </mat-card>
+        <!-- Loop Show Drying Device -->
+        <mat-card class="col-md-6 card-drying">
+            <div class="card-body">
+                <mat-card-header class="row">
+                    <h2 class="col-md-8" style="color: black; text-shadow: 2px 2px 4px rgb(141, 137, 137);">DRYING</h2>
+                    <Button id="addRoom" data-toggle="modal" data-target="#adddevice"
+                        class="btn btn-primary btnAdd col-md-4" (click)="DeviceCate='drying'">Add</Button>
+                </mat-card-header>
+                <mat-card-content>
+                    <ul class="row" id="ul-room">
+                        <li class="col-md-12" *ngFor="let item of drying_devices">
+                            <div class="row" data-toggle="modal" data-target="#dryingModal" (click)="ChangeID(item)">
+                                <div class="col-md-11">
+                                    <div>
+                                        <h2>{{item.name}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </mat-card-content>
+            </div>
+        </mat-card>
+    </div>
+</div>
+<!-- Modal control Watering -->
+<div class="modal fade" id="wateringModal" tabindex="-1" role="dialog" aria-labelledby="wateringModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" role="document">
+            <div class="modal-header">
+                <h2 class="modal-title" id="wateringModalLabel" *ngIf="itemDevice">SETTING OF {{itemDevice.name | uppercase}}</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <mat-card-header>
+                    <mat-card-title>
+                        <h2>Tưới Cây</h2>
+                    </mat-card-title>
+                    <mat-slide-toggle [checked]="checked" (change)="changed()">
+                        {{slidename}}
+                    </mat-slide-toggle>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <mat-card class="col-md-6 card-item">
+                                    <mat-card-title>Điều Khiển</mat-card-title>
+                                    <mat-card-content>
+                                        <mat-slide-toggle [checked]="checkedWaterTree" (change)="changedWaterTree()">
+                                            {{slidenameWT}}
+                                        </mat-slide-toggle>
+                                    </mat-card-content>
+                                </mat-card>
+                                <mat-card class="col-md-6 card-item">
+                                    <mat-card-title>Độ Ẩm Đất</mat-card-title>
+                                </mat-card>
+                                <mat-card class="col-md-6 card-item">
+                                    <mat-card-title>Nước</mat-card-title>
+                                    <mat-card-content>
+                                        <div class="alert alert-danger" role="alert" *ngIf="waterlevel <= 20">
+                                            Nước sắp cạn!!!
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                                [ngStyle]="{'width': waterlevel + '%'}">{{waterlevel}}%
+                                            </div>
+                                        </div>
+                                    </mat-card-content>
+                                </mat-card>
+                                <mat-card class="col-md-6 card-item">
+                                    <mat-card-title>Chọn Chế Độ Tưới</mat-card-title>
+                                    <mat-card-content>
+                                        <mat-radio-group>
+                                            <mat-radio-button value="m" checked>Phun Sương</mat-radio-button><br>
+                                            <mat-radio-button value="f">Nhỏ Giọt</mat-radio-button>
+                                        </mat-radio-group>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+                        </div>
+
+                        <mat-card class="col-md-6 card-item">
+                            <mat-card-title>
+                                Hẹn Giờ
+                                <button mat-mini-fab aria-label="Example icon button with a plus one icon"
+                                    style="float: right;" (click)="addTime()">
+                                    <mat-icon>plus_one</mat-icon>
+                                </button>
+                            </mat-card-title>
+                            <mat-card-content id="datetime-item">
+
+                            </mat-card-content>
+                        </mat-card>
+
+                    </div>
+                </mat-card-content>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                    (click)="setSTT('watering')">Apply</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Control drying -->
+<div class="modal fade" id="dryingModal" tabindex="-1" role="dialog" aria-labelledby="dryingModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="dryingModalLabel" *ngIf="itemDevice">SETTING OF {{itemDevice.name | uppercase}}</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <mat-card-header>
+                    <mat-card-title>Phơi đồ</mat-card-title>
+                    <mat-slide-toggle [checked]="checked" (change)="changed()">
+                        {{slidename}}
+                    </mat-slide-toggle>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="row">
+                                <mat-card class="col-md-12 card-item">
+                                    <mat-card-title>Điều Khiển</mat-card-title>
+                                    <mat-card-content>
+                                        <mat-slide-toggle [checked]="checkedWaterTree" (change)="changedWaterTree()">
+                                            {{slidenameWT}}
+                                        </mat-slide-toggle>
+                                    </mat-card-content>
+                                </mat-card>
+                                <mat-card class="col-md-12 card-item">
+                                    <mat-card-title>Trạng thái</mat-card-title>
+                                    <mat-card-content>
+                                        <div class="alert alert-danger" role="alert">
+                                            Đang chạy!!!
+                                        </div>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+                        </div>
+                        <mat-card class="col-md-4 card-item">
+                            <mat-card-title>Thời tiết</mat-card-title>
+                        </mat-card>
+                        <mat-card class="col-md-4 card-item">
+                            <mat-card-title>
+                                Hẹn Giờ
+                                <button mat-mini-fab col-mdor="accent"
+                                    aria-label="Example icon button with a plus one icon" style="float: right;"
+                                    (click)="addTime()">
+                                    <mat-icon>plus_one</mat-icon>
+                                </button>
+                            </mat-card-title>
+                            <mat-card-content id="datetime-item">
+
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </mat-card-content>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                    (click)="setSTT('drying')">Apply</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Add device -->
+<div class="modal fade" id="adddevice" tabindex="-1" role="dialog" aria-labelledby="adddeviceLabel" aria-hidden="true">
+    <div class="modal-dialog adddevice-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="adddeviceLabel">ADD DEVICE FOR {{DeviceCate | uppercase}}</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formAddDevice" (ngSubmit)="AddDevice()">
+                    <label>
+                        Device's Name:
+                        <input type="text" formControlName="name">
+                    </label>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

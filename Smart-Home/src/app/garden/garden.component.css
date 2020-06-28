@@ -10,14 +10,15 @@ h1 {
     text-shadow: 0px 10px 3px rgba(255,255,255,0.5);
 }
 
-.btnAddRomm{
+.btnAdd{
+    max-width: 100px;
     height: 100%;
     padding: 5px 5px;
     border-radius: 5px;
-    font-size: 20px
+    font-size: 15px
 }
 
-.btnAddRoom:hover{
+.btnAdd:hover{
     background-color: cornflowerblue;
 }
 
@@ -46,20 +47,45 @@ input[type=text] {
     text-decoration: none;
     font-size: 18px;
     color: black;
-    display: block
+    display: block;
 }
-#ul-room li:hover{
-    background-color: #eee;
+.modal-dialog{
+    max-width: 100vw;
+    width: 1000px;
+    margin: 30px auto;
 }
+
 a{
     text-decoration: none;
 }
+#ul-room li:hover{
+    cursor: pointer;
+    background-color: #eee;
+}
 #ul-room{
     max-height: 55vh;
+    max-width: 450px;
     margin-bottom: 10px;
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
+    margin: 0 30px;
+    padding-inline-start: 0px;
+}
+.mat-card{
+    margin: 0 auto;
+    max-width: 500px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-watering{
+    background-image: url(./images/water-05.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.card-drying{
+    background-image: url(./images/sun.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .card-body{
     background-color: white;
@@ -67,12 +93,11 @@ a{
     border-radius: 5px;
     min-height: 450px;
 }
-.mat-card-content{
-    margin-right: 40px;
+.card-item{
+    max-width: 300px;
+    margin: 0 auto;
+    margin-top: 30px;
 }
-.mat-card{
-    background-image: url(./images/sw-img-livingroom-02-hdr.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.adddevice-dialog{
+    width: 350px;
 }
