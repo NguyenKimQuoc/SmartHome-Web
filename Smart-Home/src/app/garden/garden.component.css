@@ -1,13 +1,15 @@
 h1 {
     font-size: 50px;
     text-align: center; 
-    padding: 10px;
+    padding: 20px;
     color: transparent;
-    background: #666666;
+    background: black;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
-    text-shadow: 0px 10px 3px rgba(255,255,255,0.5);
+    text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
+    margin-block-start: 0;
+    margin-block-end: 0;
 }
 
 .btnAdd{
@@ -79,17 +81,18 @@ a{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .card-watering{
-    background-image: url(./images/water-05.jpg);
+    /* background-image: url(./images/water-05.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
+    background-color: rgba(255, 255, 255, 0.7);
 }
 .card-drying{
-    background-image: url(./images/sun.jpg);
+    /* background-image: url(./images/sun.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
+    background-color: rgba(255, 255, 255, 0.7);
 }
 .card-body{
-    background-color: rgba(255, 255, 255, 0.5);;
     padding: 5px 0px;
     border-radius: 5px;
     min-height: 450px;
@@ -101,4 +104,13 @@ a{
 }
 .adddevice-dialog{
     width: 350px;
+}
+.body{
+    background-image: url(./images/552587-PK35SC-756.jpg);
+    background-repeat: no-repeat;
+    min-height: 91vh;
+    min-width: 100vw;
+    background-size: cover;
+    margin-top: -25px;
+    background-position: top;
 }

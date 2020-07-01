@@ -1,53 +1,66 @@
-<div class="container">
-    <h1>GARDEN</h1>
-    <div class="row">
-        <!-- Loop Show Watering Device -->
-        <mat-card class="col-md-6 card-watering">
-            <div class="card-body">
-                <mat-card-header class="row">
-                    <h2 class="col-md-8" style="color: black;text-shadow: 2px 2px 4px rgb(141, 137, 137);">WATERING</h2>
-                    <Button id="addRoom" data-toggle="modal" data-target="#adddevice"
-                        class="btn btn-primary btnAdd col-md-4" (click)="DeviceCate='watering'">Add</Button>
-                </mat-card-header>
-                <mat-card-content>
-                    <ul id="ul-room">
-                        <li class="col-md-12" *ngFor="let item of wateringdevices">
-                            <div class="row" data-toggle="modal" data-target="#wateringModal"
-                                (click)="ChangeID(item)">
-                                <div class="col-md-11">
-                                    <div>
-                                        <h2>{{item.name}}</h2>
+<div class="body">
+    <div class="container">
+        <h1>GARDEN</h1>
+        <div class="row">
+            <!-- Loop Show Watering Device -->
+            <mat-card class="col-md-6 card-watering">
+                <div class="card-body">
+                    <mat-card-header class="row">
+                        <h2 class="col-md-8" style="color: black;text-shadow: 2px 2px 4px rgb(141, 137, 137);">
+                            <mat-icon class="align-middle">list</mat-icon> WATERING
+                        </h2>
+                        <Button id="addRoom" data-toggle="modal" data-target="#adddevice"
+                            class="btn btn-primary btnAdd col-md-4" (click)="DeviceCate='watering'">
+                            <span class="align-middle">Add </span>
+                            <mat-icon class="align-middle">library_add</mat-icon>
+                        </Button>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <ul id="ul-room">
+                            <li class="col-md-12" *ngFor="let item of wateringdevices">
+                                <div class="row" data-toggle="modal" data-target="#wateringModal"
+                                    (click)="ChangeID(item)">
+                                    <div class="col-md-11">
+                                        <div>
+                                            <h2>{{item.name}}</h2>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
-                </mat-card-content>
-            </div>
-        </mat-card>
-        <!-- Loop Show Drying Device -->
-        <mat-card class="col-md-6 card-drying">
-            <div class="card-body">
-                <mat-card-header class="row">
-                    <h2 class="col-md-8" style="color: black; text-shadow: 2px 2px 4px rgb(141, 137, 137);">DRYING</h2>
-                    <Button id="addRoom" data-toggle="modal" data-target="#adddevice"
-                        class="btn btn-primary btnAdd col-md-4" (click)="DeviceCate='drying'">Add</Button>
-                </mat-card-header>
-                <mat-card-content>
-                    <ul class="row" id="ul-room">
-                        <li class="col-md-12" *ngFor="let item of dryingdevices">
-                            <div class="row" data-toggle="modal" data-target="#dryingModal" (click)="ChangeID(item)">
-                                <div class="col-md-11">
-                                    <div>
-                                        <h2>{{item.name}}</h2>
+                            </li>
+                        </ul>
+                    </mat-card-content>
+                </div>
+            </mat-card>
+            <!-- Loop Show Drying Device -->
+            <mat-card class="col-md-6 card-drying">
+                <div class="card-body">
+                    <mat-card-header class="row">
+                        <h2 class="col-md-8" style="color: black; text-shadow: 2px 2px 4px rgb(141, 137, 137);">
+                            <mat-icon class="align-middle">list</mat-icon> DRYING
+                        </h2>
+                        <Button id="addRoom" data-toggle="modal" data-target="#adddevice"
+                            class="btn btn-primary btnAdd col-md-4" (click)="DeviceCate='drying'">
+                            <span class="align-middle">Add </span>
+                            <mat-icon class="align-middle">library_add</mat-icon>
+                        </Button>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <ul class="row" id="ul-room">
+                            <li class="col-md-12" *ngFor="let item of dryingdevices">
+                                <div class="row" data-toggle="modal" data-target="#dryingModal"
+                                    (click)="ChangeID(item)">
+                                    <div class="col-md-11">
+                                        <div>
+                                            <h2>{{item.name}}</h2>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
-                </mat-card-content>
-            </div>
-        </mat-card>
+                            </li>
+                        </ul>
+                    </mat-card-content>
+                </div>
+            </mat-card>
+        </div>
     </div>
 </div>
 <!-- Modal control Watering -->
@@ -56,7 +69,8 @@
     <div class="modal-dialog">
         <div class="modal-content" role="document">
             <div class="modal-header">
-                <h2 class="modal-title" id="wateringModalLabel" *ngIf="itemDevice">SETTING OF {{itemDevice.name | uppercase}}</h2>
+                <h2 class="modal-title" id="wateringModalLabel" *ngIf="itemDevice">SETTING OF
+                    {{itemDevice.name | uppercase}}</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -140,7 +154,8 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title" id="dryingModalLabel" *ngIf="itemDevice">SETTING OF {{itemDevice.name | uppercase}}</h2>
+                <h2 class="modal-title" id="dryingModalLabel" *ngIf="itemDevice">SETTING OF
+                    {{itemDevice.name | uppercase}}</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

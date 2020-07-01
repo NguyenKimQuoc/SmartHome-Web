@@ -1,64 +1,70 @@
 <div class="body">
-<div class="container">
-    <h1>ROOM</h1>
-    <mat-card>
-        <div class="card-body">
-            <mat-card-header>
-                <h2 class="col-md-10" style="color: black;text-shadow: 2px 2px 4px rgb(141, 137, 137);">ROOM LIST</h2>
-                <div class="col-md-2"><Button id="addRoom" data-toggle="modal" data-target="#exampleModal"
-                        class="btn btn-primary btnAddRoom">Add
-                        Room</Button></div>
-            </mat-card-header>
-            <mat-card-content>
-                <ul class="row" id="ul-room">
-                    <li class="col-12" *ngFor="let item of items">
-                        <a routerLink="/room/roomdevices?rommID={{item.ID}}">
-                            <div class="row">
-                                <div class="col-11">
-                                    <div>
-                                        <h2>{{item.name}}</h2>
+    <div class="container">
+        <h1>ROOM</h1>
+        <mat-card>
+            <div class="card-body">
+                <mat-card-header>
+                    <h2 class="col-md-10" style="color: black;text-shadow: 2px 2px 4px rgb(141, 137, 137);">
+                        <mat-icon class="align-middle">list</mat-icon> ROOM LIST
+                    </h2>
+                    <div class="col-md-2">
+                        <Button id="addRoom" data-toggle="modal" data-target="#exampleModal"
+                            class="btn btn-primary btnAddRoom">
+                            <span class="align-middle">Add </span>
+                            <mat-icon class="align-middle">library_add</mat-icon>
+                        </Button>
+                    </div>
+                </mat-card-header>
+                <mat-card-content>
+                    <ul class="row" id="ul-room">
+                        <li class="col-12" *ngFor="let item of items">
+                            <a routerLink="/room/roomdevices?rommID={{item.ID}}">
+                                <div class="row">
+                                    <div class="col-11">
+                                        <div>
+                                            <h2>{{item.name}}</h2>
+                                        </div>
+                                        <div>
+                                            <h5>{{item.Description}}</h5>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <h5>{{item.Description}}</h5>
+                                    <div class="col-1">
+                                        <img src="../../assets/foward.png" title="Go to the Kitchen">
                                     </div>
                                 </div>
-                                <div class="col-1">
-                                    <img src="../../assets/foward.png" title="Go to the Kitchen">
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </mat-card-content>
-        </div>
-    </mat-card>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title" id="exampleModalLabel">Add Room</h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                            </a>
+                        </li>
+                    </ul>
+                </mat-card-content>
             </div>
-            <div class="modal-body">
-                <span>Room's name:</span>
-                <input type="text" id="roomName" name="roomName">
-                <span>Room's ID:</span>
-                <input type="text" id="roomID" name="roomID">
-                <span>Description:</span>
-                <input type="text" id="roomDescription" name="roomDescription">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" (click)="addRoom_Func()"
-                    data-dismiss="modal">Apply</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </mat-card>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLabel">Add Room</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span>Room's name:</span>
+                    <input type="text" id="roomName" name="roomName">
+                    <span>Room's ID:</span>
+                    <input type="text" id="roomID" name="roomID">
+                    <span>Description:</span>
+                    <input type="text" id="roomDescription" name="roomDescription">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" (click)="addRoom_Func()"
+                        data-dismiss="modal">Apply</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <!-- //Modal -->
