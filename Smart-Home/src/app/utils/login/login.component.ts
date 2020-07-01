@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../service/auth.service';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,36 +8,36 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  constructor(
-    private auth: AuthService,
-    private fb: FormBuilder
-  ) { }
-
+  constructor(private auth: AuthService, private fb: FormBuilder) {
+    this.userLogin = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
+  userLogin: FormGroup;
   ngOnInit(): void {
+    // none
   }
 
-  userLogin = this.fb.group({
-    email: ['', Validators.required],
-    password: ['', Validators.required]
-  })
+  Login(): void {
+    const user =
+      'email=' +
+      this.userLogin.controls['email'].value +
+      '&password=' +
+      this.userLogin.controls['password'].value;
 
-
-
-  Login(){
-    var user="email="+this.userLogin.controls['email'].value+"&password="+this.userLogin.controls['password'].value;
-
-    this.auth.loginUser(user)
-    .subscribe(
-      res =>{
+    this.auth.loginUser(user).subscribe(
+      (res) => {
         console.log(res);
-        (<HTMLInputElement>document.getElementById("btn-login")).style.display = "none";
+        (<HTMLInputElement>document.getElementById('btn-login')).style.display =
+          'none';
       },
-      error =>{
+      (error) => {
         console.log(error);
       },
-      () => {}
+      () => {
+        // none
+      }
     );
-    
   }
 }

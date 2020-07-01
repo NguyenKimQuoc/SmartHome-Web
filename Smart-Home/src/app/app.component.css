@@ -1,4 +1,6 @@
-
+.container,.container-fluid{
+    padding: 0;
+}
 .time{
     text-align:  right;
     padding-right: 10px;

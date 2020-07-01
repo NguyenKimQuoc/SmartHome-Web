@@ -52,6 +52,7 @@ input[type=text] {
     background-color: #eee;
 }
 a{
+    color: black;
     text-decoration: none;
 }
 #ul-room{
@@ -60,19 +61,25 @@ a{
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-inline-start: 0px;
+    margin: 0 30px;
 }
 .card-body{
-    background-color: white;
+    /* background-color: rgba(255, 255, 255, 0.7); */
     padding: 5px 0px;
-    border-radius: 5px;
     min-height: 450px;
 }
-.mat-card-content{
-    margin-right: 40px;
-}
 .mat-card{
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+.body{
     background-image: url(./images/sw-img-livingroom-02-hdr.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-height: 91vh;
+    min-width: 100vw;
+    margin-top: -25px;
 }

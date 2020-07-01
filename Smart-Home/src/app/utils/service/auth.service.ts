@@ -6,16 +6,14 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  
   // private registerUrl = "http://fxips.ddns.net:3000/api/signup"
-  private loginUrl = "http://18.163.110.216:3000/api/v1/login";
-  
-  private headers = {'Content-Type':'application/x-www-form-urlencoded'};
+  private loginUrl = 'http://18.163.110.216:3000/api/v1/login';
 
-  constructor(private http: HttpClient,
-              private _router: Router) { }
+  private headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
 
-  loginUser(user){
-    return this.http.post<any>(this.loginUrl, user, {headers:this.headers});
+  constructor(private http: HttpClient, private _router: Router) {}
+
+  loginUser(user) {
+    return this.http.post<any>(this.loginUrl, user, { headers: this.headers });
   }
 }

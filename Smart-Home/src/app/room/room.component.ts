@@ -6,21 +6,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./room.component.css']
 })
 export class RoomComponent implements OnInit {
-   
-  constructor() { }
+  constructor() {
+    // none
+  }
 
   ngOnInit(): void {
+    // none
   }
-  items =[]
-  addRoom_Func(){
-    var roomName = (<HTMLInputElement>document.getElementById("roomName")).value;
-    var roomID = (<HTMLInputElement>document.getElementById("roomID")).value;
-    var roomDescription = (<HTMLInputElement>document.getElementById("roomDescription")).value;
-    var data = {
-      "name" : roomName,
-      "ID" : roomID,
-      "Description" : roomDescription
-    }
+  items = [];
+  addRoom_Func(): void {
+    const roomName = (<HTMLInputElement>document.getElementById('roomName'))
+      .value;
+    const roomID = (<HTMLInputElement>document.getElementById('roomID')).value;
+    const roomDescription = (<HTMLInputElement>(
+      document.getElementById('roomDescription')
+    )).value;
+    const data = {
+      name: roomName,
+      ID: roomID,
+      Description: roomDescription
+    };
     this.items.push(data);
     console.log(this.items);
   }

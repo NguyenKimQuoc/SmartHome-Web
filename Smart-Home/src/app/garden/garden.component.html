@@ -11,7 +11,7 @@
                 </mat-card-header>
                 <mat-card-content>
                     <ul id="ul-room">
-                        <li class="col-md-12" *ngFor="let item of watering_devices">
+                        <li class="col-md-12" *ngFor="let item of wateringdevices">
                             <div class="row" data-toggle="modal" data-target="#wateringModal"
                                 (click)="ChangeID(item)">
                                 <div class="col-md-11">
@@ -35,7 +35,7 @@
                 </mat-card-header>
                 <mat-card-content>
                     <ul class="row" id="ul-room">
-                        <li class="col-md-12" *ngFor="let item of drying_devices">
+                        <li class="col-md-12" *ngFor="let item of dryingdevices">
                             <div class="row" data-toggle="modal" data-target="#dryingModal" (click)="ChangeID(item)">
                                 <div class="col-md-11">
                                     <div>
