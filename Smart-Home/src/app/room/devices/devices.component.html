@@ -25,7 +25,8 @@
                                     {{item.status}}
                                 </mat-slide-toggle>
                                 <div class="col-md-6"></div>
-                                <button class="btn btn-primary btnAddDevice col-md-2" data-toggle="modal" data-target="#deviceModal" style="max-height: 40px;">Setting</button>
+                                <button class="btn btn-primary btnAddDevice col-md-2" data-toggle="modal"
+                                    data-target="#deviceModal" style="max-height: 40px;" (click)="selectDevice(item)">Setting</button>
                             </div>
                         </li>
                     </ul>
@@ -42,8 +43,7 @@
     </div>
 </div>
 <!-- Add Modal -->
-<div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="AddModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="AddModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -73,7 +73,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title" id="deviceModalLabel">Add device</h2>
+                <h2 class="modal-title" id="deviceModalLabel" *ngIf="clickedDevice">SETTING OF "{{clickedDevice.name | uppercase}}"</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

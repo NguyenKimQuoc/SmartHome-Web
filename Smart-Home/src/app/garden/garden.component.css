@@ -34,7 +34,7 @@ input[type=text] {
 .container .modal-body span{
     font-size: 20px;
 }
-#ul-room li {
+ul li {
     /* width: 100%;
     margin-top: 10px;
     padding: 10px 10px;
@@ -51,20 +51,14 @@ input[type=text] {
     color: black;
     display: block;
 }
-.modal-dialog{
-    max-width: 100vw;
-    width: 1000px;
-    margin: 30px auto;
-}
-
 a{
     text-decoration: none;
 }
-#ul-room li:hover{
+ul li:hover{
     cursor: pointer;
     background-color: #eee;
 }
-#ul-room{
+#ul-device{
     max-height: 55vh;
     max-width: 450px;
     margin-bottom: 10px;
@@ -72,6 +66,17 @@ a{
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     margin: 0 30px;
+    padding-inline-start: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#ul-timer{
+    max-height: 250px;
+    max-width: 450px;
+    margin-bottom: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 10px;
     padding-inline-start: 0px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -102,7 +107,12 @@ a{
     margin: 0 auto;
     margin-top: 30px;
 }
-.adddevice-dialog{
+.modal-dialog{
+    max-width: 100vw;
+    width: 1000px;
+    margin: 30px auto;
+}
+.adddevice-dialog, .addtime-dialog{
     width: 350px;
 }
 .body{

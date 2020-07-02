@@ -20,37 +20,37 @@ export class DevicesService {
       {
         roomID: 1,
         deviceID: 2,
-        name: 'Den',
+        name: 'Đèn 1',
         status: 'on'
       },
       {
         roomID: 1,
         deviceID: 2,
-        name: 'Den',
+        name: 'Đèn 2',
         status: 'off'
       },
       {
         roomID: 1,
         deviceID: 2,
-        name: 'Den',
+        name: 'Đèn 3',
         status: 'on'
       },
       {
         roomID: 1,
         deviceID: 2,
-        name: 'Den',
+        name: 'Quạt 1',
         status: 'off'
       },
       {
         roomID: 1,
         deviceID: 2,
-        name: 'Den',
+        name: 'Quạt 2',
         status: 'on'
       },
       {
         roomID: 1,
         deviceID: 2,
-        name: 'Den',
+        name: 'Quạt 3',
         status: 'on'
       }
     ];

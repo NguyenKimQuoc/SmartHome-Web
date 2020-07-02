@@ -8,11 +8,17 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./garden.component.css']
 })
 export class GardenComponent implements OnInit {
+  formAddDevice: FormGroup;
+  formAddTime: FormGroup;
   constructor(private formBuilder: FormBuilder) {
     this.formAddDevice = this.formBuilder.group({
       name: [''],
       ID: [''],
       roomID: ['']
+    });
+    this.formAddTime = this.formBuilder.group({
+      hour: [''],
+      minute: ['']
     });
   }
 
@@ -20,69 +26,63 @@ export class GardenComponent implements OnInit {
   ngOnInit(): void {}
 
   checked = false;
-  slidename = 'Đang Tắt';
+  autoStatus = 'OFF';
   changed() {
     this.checked = !this.checked;
-    if (this.checked) this.slidename = 'Đang Bật';
-    else this.slidename = 'Đang Tắt';
-  }
-  addTime() {
-    const x = document.createElement('INPUT');
-    x.setAttribute('type', 'datetime-local');
-    document.getElementById('datetime-item').appendChild(x);
+    if (this.checked) this.autoStatus = 'ON';
+    else this.autoStatus = 'OFF';
   }
   checkedWaterTree = true;
-  slidenameWT = 'Tưới Đang Bật';
+  slidenameWT = 'ON';
   changedWaterTree() {
     this.checkedWaterTree = !this.checkedWaterTree;
-    if (this.checkedWaterTree) this.slidenameWT = 'Tưới Đang Bật';
-    else this.slidenameWT = 'Tưới Đang Tắt';
+    if (this.checkedWaterTree) this.slidenameWT = 'ON';
+    else this.slidenameWT = 'OFF';
   }
   waterlevel = 10;
-  formAddDevice: FormGroup;
   // test
   wateringdevices = [
     {
       ID: 1,
-      name: 'May bom 1'
+      name: 'Máy bom 1'
     },
     {
       ID: 2,
-      name: 'May bom 2'
+      name: 'Máy bom 2'
     },
     {
       ID: 3,
-      name: 'May bom 3'
+      name: 'Máy bom 3'
     },
     {
       ID: 4,
-      name: 'May bom 4'
+      name: 'Máy bom 4'
     },
     {
       ID: 5,
-      name: 'May bom 5'
+      name: 'Máy bom 5'
     },
     {
       ID: 6,
-      name: 'May bom 6'
+      name: 'Máy bom 6'
     },
     {
       ID: 7,
-      name: 'May bom 7'
+      name: 'Máy bom 7'
     }
   ];
   // test
   dryingdevices = [
     {
       ID: 1,
-      name: 'Bat 1'
+      name: 'Bạt 1'
     },
     {
       ID: 2,
-      name: 'Bat 2'
+      name: 'Bạt 2'
     }
   ];
-
+  timerWatering = [];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   itemDevice: any;
   DeviceCate = '';
@@ -99,5 +99,9 @@ export class GardenComponent implements OnInit {
   // Set các trạng thái tại thiết bị đó(dùng chung cho drying và watering)
   setSTT(cate: string) {
     console.log(cate);
+  }
+  // Demo addtime for watering
+  addTime() {
+    this.timerWatering.push(this.formAddTime.value);
   }
 }

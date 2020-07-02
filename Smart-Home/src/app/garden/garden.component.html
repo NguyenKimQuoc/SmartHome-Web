@@ -9,14 +9,14 @@
                         <h2 class="col-md-8" style="color: black;text-shadow: 2px 2px 4px rgb(141, 137, 137);">
                             <mat-icon class="align-middle">list</mat-icon> WATERING
                         </h2>
-                        <Button id="addRoom" data-toggle="modal" data-target="#adddevice"
+                        <Button data-toggle="modal" data-target="#adddevice"
                             class="btn btn-primary btnAdd col-md-4" (click)="DeviceCate='watering'">
                             <span class="align-middle">Add </span>
                             <mat-icon class="align-middle">library_add</mat-icon>
                         </Button>
                     </mat-card-header>
                     <mat-card-content>
-                        <ul id="ul-room">
+                        <ul id="ul-device">
                             <li class="col-md-12" *ngFor="let item of wateringdevices">
                                 <div class="row" data-toggle="modal" data-target="#wateringModal"
                                     (click)="ChangeID(item)">
@@ -38,14 +38,14 @@
                         <h2 class="col-md-8" style="color: black; text-shadow: 2px 2px 4px rgb(141, 137, 137);">
                             <mat-icon class="align-middle">list</mat-icon> DRYING
                         </h2>
-                        <Button id="addRoom" data-toggle="modal" data-target="#adddevice"
+                        <Button data-toggle="modal" data-target="#adddevice"
                             class="btn btn-primary btnAdd col-md-4" (click)="DeviceCate='drying'">
                             <span class="align-middle">Add </span>
                             <mat-icon class="align-middle">library_add</mat-icon>
                         </Button>
                     </mat-card-header>
                     <mat-card-content>
-                        <ul class="row" id="ul-room">
+                        <ul class="row" id="ul-device">
                             <li class="col-md-12" *ngFor="let item of dryingdevices">
                                 <div class="row" data-toggle="modal" data-target="#dryingModal"
                                     (click)="ChangeID(item)">
@@ -70,19 +70,20 @@
         <div class="modal-content" role="document">
             <div class="modal-header">
                 <h2 class="modal-title" id="wateringModalLabel" *ngIf="itemDevice">SETTING OF
-                    {{itemDevice.name | uppercase}}</h2>
+                    "{{itemDevice.name | uppercase}}"</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <mat-card-header>
-                    <mat-card-title>
-                        <h2>Tưới Cây</h2>
+                    <mat-card-title class="align-middle">
+                        <h2>Tưới Tự Động <mat-slide-toggle [checked]="checked" (change)="changed()"
+                                class="align-middle">
+                                {{autoStatus}}
+                            </mat-slide-toggle>
+                        </h2>
                     </mat-card-title>
-                    <mat-slide-toggle [checked]="checked" (change)="changed()">
-                        {{slidename}}
-                    </mat-slide-toggle>
                 </mat-card-header>
                 <mat-card-content>
                     <div class="row">
@@ -95,9 +96,22 @@
                                             {{slidenameWT}}
                                         </mat-slide-toggle>
                                     </mat-card-content>
+                                    <mat-card-title>Trạng thái</mat-card-title>
+                                    <mat-card-content>
+                                        <div class="alert alert-success" role="alert">
+                                            Máy Rảnh
+                                        </div>
+                                    </mat-card-content>
                                 </mat-card>
                                 <mat-card class="col-md-6 card-item">
                                     <mat-card-title>Độ Ẩm Đất</mat-card-title>
+                                    <mat-card-content>
+                                        <h2 style="color: blue;">55%</h2>
+                                    </mat-card-content>
+                                    <mat-card-title>Ngưỡng Hoạt Động</mat-card-title>
+                                    <mat-card-content>
+                                        <input type="number" style="width: 50px;"> %
+                                    </mat-card-content>
                                 </mat-card>
                                 <mat-card class="col-md-6 card-item">
                                     <mat-card-title>Nước</mat-card-title>
@@ -125,15 +139,24 @@
                         </div>
 
                         <mat-card class="col-md-6 card-item">
-                            <mat-card-title>
-                                Hẹn Giờ
-                                <button mat-mini-fab aria-label="Example icon button with a plus one icon"
-                                    style="float: right;" (click)="addTime()">
-                                    <mat-icon>plus_one</mat-icon>
-                                </button>
+                            <mat-card-title style="margin-bottom: 30px;">
+                                <span>Hẹn giờ</span>
+                                <Button class="btn btn-primary btnAdd" style="width: 40px; float: right;" data-toggle="modal" data-target="#addtime">
+                                    <mat-icon class="align-middle">library_add</mat-icon>
+                                </Button>
                             </mat-card-title>
-                            <mat-card-content id="datetime-item">
-
+                            <mat-card-content>
+                                <ul class="row" id="ul-timer">
+                                    <li class="col-md-12" *ngFor="let item of timerWatering">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <div>
+                                                    <h2>{{item.hour}}:{{item.minute}}</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
                             </mat-card-content>
                         </mat-card>
 
@@ -150,12 +173,12 @@
 </div>
 <!-- Modal Control drying -->
 <div class="modal fade" id="dryingModal" tabindex="-1" role="dialog" aria-labelledby="dryingModalLabel"
-    aria-hidden="true">
+    aria-hidden="true" style="vertical-align: middle;">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="modal-title" id="dryingModalLabel" *ngIf="itemDevice">SETTING OF
-                    {{itemDevice.name | uppercase}}</h2>
+                    "{{itemDevice.name | uppercase}}"</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -164,7 +187,7 @@
                 <mat-card-header>
                     <mat-card-title>Phơi đồ</mat-card-title>
                     <mat-slide-toggle [checked]="checked" (change)="changed()">
-                        {{slidename}}
+                        {{autoStatus}}
                     </mat-slide-toggle>
                 </mat-card-header>
                 <mat-card-content>
@@ -221,7 +244,7 @@
     <div class="modal-dialog adddevice-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title" id="adddeviceLabel">ADD DEVICE FOR {{DeviceCate | uppercase}}</h2>
+                <h2 class="modal-title" id="adddeviceLabel">ADD DEVICE FOR "{{DeviceCate | uppercase}}"</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -231,6 +254,33 @@
                     <label>
                         Device's Name:
                         <input type="text" formControlName="name">
+                    </label>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  -->
+<div class="modal fade" id="addtime" tabindex="-1" role="dialog" aria-labelledby="addtimeLabel" aria-hidden="true">
+    <div class="modal-dialog addtime-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="addtimeLabel">ADD TIME</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formAddTime" (ngSubmit)="addTime()">
+                    <label>
+                        Time:
+                        <input type="number" formControlName="hour" style="width: 50px;" min="0" max="23">:
+                        <input type="number" formControlName="minute" style="width: 50px;" min="0" max="59">
                     </label>
                     <br>
                     <button type="submit" class="btn btn-primary">Add</button>
