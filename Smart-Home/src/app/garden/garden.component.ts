@@ -2,7 +2,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-
 @Component({
   selector: 'app-garden',
   templateUrl: './garden.component.html',

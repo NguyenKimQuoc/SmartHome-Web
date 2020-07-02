@@ -12,10 +12,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { RoomComponent } from './room/room.component';
 import { GardenComponent } from './garden/garden.component';
+import { DevicesComponent } from './room/devices/devices.component';
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'room', component: RoomComponent },
   { path: 'garden', component: GardenComponent },
+  { path: 'room/:roomID', component: DevicesComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 

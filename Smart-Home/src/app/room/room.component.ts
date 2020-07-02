@@ -13,7 +13,18 @@ export class RoomComponent implements OnInit {
   ngOnInit(): void {
     // none
   }
-  items = [];
+  items = [
+    {
+      name: 'Living Room',
+      ID: '1',
+      Description: 'none'
+    },
+    {
+      name: 'Bed Room',
+      ID: '2',
+      Description: 'none'
+    }
+  ];
   addRoom_Func(): void {
     const roomName = (<HTMLInputElement>document.getElementById('roomName'))
       .value;

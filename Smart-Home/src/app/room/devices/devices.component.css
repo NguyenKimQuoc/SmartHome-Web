@@ -12,15 +12,11 @@ h1 {
     margin-block-end: 0;
 }
 
-.btnAdd{
+.btnAddDevice{
     max-width: 100px;
-    height: 100%;
-    padding: 5px 5px;
-    border-radius: 5px;
-    font-size: 15px
 }
 
-.btnAdd:hover{
+.btnAddDevice:hover{
     background-color: cornflowerblue;
 }
 
@@ -34,7 +30,7 @@ input[type=text] {
 .container .modal-body span{
     font-size: 20px;
 }
-#ul-room li {
+#ul-device li {
     /* width: 100%;
     margin-top: 10px;
     padding: 10px 10px;
@@ -49,68 +45,41 @@ input[type=text] {
     text-decoration: none;
     font-size: 18px;
     color: black;
-    display: block;
+    display: block
 }
-.modal-dialog{
-    max-width: 100vw;
-    width: 1000px;
-    margin: 30px auto;
-}
-
-a{
-    text-decoration: none;
-}
-#ul-room li:hover{
-    cursor: pointer;
+#ul-device li:hover{
     background-color: #eee;
 }
-#ul-room{
+a{
+    color: black;
+    text-decoration: none;
+}
+#ul-device{
     max-height: 55vh;
-    max-width: 450px;
     margin-bottom: 10px;
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    margin: 0 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding-inline-start: 0px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.mat-card{
-    margin: 0 auto;
-    max-width: 500px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.card-watering{
-    /* background-image: url(./images/water-05.jpg);
-    background-repeat: no-repeat;
-    background-size: cover; */
-    background-color: rgba(255, 255, 255, 0.7);
-}
-.card-drying{
-    /* background-image: url(./images/sun.jpg);
-    background-repeat: no-repeat;
-    background-size: cover; */
-    background-color: rgba(255, 255, 255, 0.7);
+    margin: 0 30px;
 }
 .card-body{
+    /* background-color: rgba(255, 255, 255, 0.7); */
     padding: 5px 0px;
+    min-height: 500px;
+}
+.mat-card{
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
-    min-height: 450px;
-}
-.card-item{
-    max-width: 300px;
-    margin: 0 auto;
-    margin-top: 30px;
-}
-.adddevice-dialog{
-    width: 350px;
 }
 .body{
-    /* background-image: url(./images/552587-PK35SC-756.jpg); */
+    background-image: url(../images/sw-img-livingroom-02-hdr.jpg);
     background-repeat: no-repeat;
+    background-size: cover;
     min-height: 91vh;
     min-width: 100vw;
-    background-size: cover;
     margin-top: -25px;
-    background-position: top;
+    background-position: center;
 }

@@ -1,0 +1,90 @@
+<div class="body">
+    <div class="container">
+        <h1>DEVICES</h1>
+        <mat-card>
+            <div class="card-body">
+                <mat-card-header>
+                    <h2 class="col-md-10" style="color: black;text-shadow: 2px 2px 4px rgb(141, 137, 137);">
+                        <mat-icon class="align-middle">list</mat-icon> DEVICES LIST
+                    </h2>
+                    <div class="col-md-2">
+                        <Button id="adddevice" data-toggle="modal" data-target="#AddModal"
+                            class="btn btn-primary btnAddDevice">
+                            <span class="align-middle">Add </span>
+                            <mat-icon class="align-middle">library_add</mat-icon>
+                        </Button>
+                    </div>
+                </mat-card-header>
+                <mat-card-content>
+                    <ul id="ul-device">
+                        <li *ngFor="let item of devices">
+                            <div class="row">
+                                <h2 class="col-md-2">{{item.name}}</h2>
+                                <mat-slide-toggle (change)="changedStatus($event.checked, item)" class="col-md-2"
+                                    [checked]="item.status == 'on'">
+                                    {{item.status}}
+                                </mat-slide-toggle>
+                                <div class="col-md-6"></div>
+                                <button class="btn btn-primary btnAddDevice col-md-2" data-toggle="modal" data-target="#deviceModal" style="max-height: 40px;">Setting</button>
+                            </div>
+                        </li>
+                    </ul>
+                </mat-card-content>
+                <mat-card-footer>
+                    <button class='btn btn-primary btnAddDevice align-bottom' (click)="onBack()"
+                        style="margin-left: 50px; position: absolute; bottom: 15px;">
+                        <mat-icon class="align-middle">backspace</mat-icon>
+                        <span class="align-middle"> Back</span>
+                    </button>
+                </mat-card-footer>
+            </div>
+        </mat-card>
+    </div>
+</div>
+<!-- Add Modal -->
+<div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="AddModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="AddModalLabel">Add device</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <span>Device's name:</span>
+                <input type="text" id="deviceName" name="deviceName">
+                <span>Device's ID:</span>
+                <input type="text" id="deviceID" name="deviceID">
+                <span>Description:</span>
+                <input type="text" id="deviceDescription" name="deviceDescription">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Apply</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Setting Modal -->
+<div class="modal fade" id="deviceModal" tabindex="-1" role="dialog" aria-labelledby="deviceModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="deviceModalLabel">Add device</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Apply</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

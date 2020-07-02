@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { RoomComponent } from './room/room.component';
 import { BedRoomComponent } from './room/bed-room/bed-room.component';
 import { GardenComponent } from './garden/garden.component';
+import { DevicesComponent } from './room/devices/devices.component';
 
 import { AuthService } from './utils/service/auth.service';
 import { LoginComponent } from './utils/login/login.component';
@@ -23,7 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RoomComponent,
     BedRoomComponent,
     LoginComponent,
-    GardenComponent
+    GardenComponent,
+    DevicesComponent
   ],
   imports: [
     BrowserModule,

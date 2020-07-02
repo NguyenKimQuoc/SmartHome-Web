@@ -20,13 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   Login(): void {
-    const user =
-      'email=' +
-      this.userLogin.controls['email'].value +
-      '&password=' +
-      this.userLogin.controls['password'].value;
-
-    this.auth.loginUser(user).subscribe(
+    this.auth.loginUser(this.userLogin.value).subscribe(
       (res) => {
         console.log(res);
         (<HTMLInputElement>document.getElementById('btn-login')).style.display =
