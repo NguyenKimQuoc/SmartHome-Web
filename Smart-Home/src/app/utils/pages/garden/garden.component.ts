@@ -2,15 +2,50 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { GardenDevicesService } from '../../services/garden.service';
 @Component({
   selector: 'app-garden',
   templateUrl: './garden.component.html',
-  styleUrls: ['./garden.component.css']
+  styleUrls: ['./garden.component.css'],
+  providers: [GardenDevicesService]
 })
 export class GardenComponent implements OnInit {
   formAddDevice: FormGroup;
   formAddTime: FormGroup;
-  constructor(private formBuilder: FormBuilder) {
+  wateringDevices: unknown = [
+    // {
+    //   ID: 1,
+    //   name: 'Máy bom 1'
+    // },
+    // {
+    //   ID: 2,
+    //   name: 'Máy bom 2'
+    // },
+    // {
+    //   ID: 3,
+    //   name: 'Máy bom 3'
+    // },
+    // {
+    //   ID: 4,
+    //   name: 'Máy bom 4'
+    // },
+    // {
+    //   ID: 5,
+    //   name: 'Máy bom 5'
+    // },
+    // {
+    //   ID: 6,
+    //   name: 'Máy bom 6'
+    // },
+    // {
+    //   ID: 7,
+    //   name: 'Máy bom 7'
+    // }
+  ];
+  constructor(
+    private formBuilder: FormBuilder,
+    public _api: GardenDevicesService
+  ) {
     this.formAddDevice = this.formBuilder.group({
       name: [''],
       ID: [''],
@@ -19,6 +54,9 @@ export class GardenComponent implements OnInit {
     this.formAddTime = this.formBuilder.group({
       hour: [''],
       minute: ['']
+    });
+    this._api.getListDevicesWatering().subscribe((res) => {
+      this.wateringDevices = res;
     });
   }
 
@@ -41,36 +79,7 @@ export class GardenComponent implements OnInit {
   }
   waterlevel = 10;
   // test
-  wateringdevices = [
-    {
-      ID: 1,
-      name: 'Máy bom 1'
-    },
-    {
-      ID: 2,
-      name: 'Máy bom 2'
-    },
-    {
-      ID: 3,
-      name: 'Máy bom 3'
-    },
-    {
-      ID: 4,
-      name: 'Máy bom 4'
-    },
-    {
-      ID: 5,
-      name: 'Máy bom 5'
-    },
-    {
-      ID: 6,
-      name: 'Máy bom 6'
-    },
-    {
-      ID: 7,
-      name: 'Máy bom 7'
-    }
-  ];
+
   // test
   dryingdevices = [
     {

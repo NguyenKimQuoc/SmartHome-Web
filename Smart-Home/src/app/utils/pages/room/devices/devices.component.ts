@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { DevicesService } from './devices.service';
+import { DevicesService } from '../../../services/devices.service';
 import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-devices-room',
