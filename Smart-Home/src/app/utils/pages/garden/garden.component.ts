@@ -13,34 +13,34 @@ export class GardenComponent implements OnInit {
   formAddDevice: FormGroup;
   formAddTime: FormGroup;
   wateringDevices: unknown = [
-    // {
-    //   ID: 1,
-    //   name: 'Máy bom 1'
-    // },
-    // {
-    //   ID: 2,
-    //   name: 'Máy bom 2'
-    // },
-    // {
-    //   ID: 3,
-    //   name: 'Máy bom 3'
-    // },
-    // {
-    //   ID: 4,
-    //   name: 'Máy bom 4'
-    // },
-    // {
-    //   ID: 5,
-    //   name: 'Máy bom 5'
-    // },
-    // {
-    //   ID: 6,
-    //   name: 'Máy bom 6'
-    // },
-    // {
-    //   ID: 7,
-    //   name: 'Máy bom 7'
-    // }
+    {
+      ID: 1,
+      name: 'Máy bom 1'
+    },
+    {
+      ID: 2,
+      name: 'Máy bom 2'
+    },
+    {
+      ID: 3,
+      name: 'Máy bom 3'
+    },
+    {
+      ID: 4,
+      name: 'Máy bom 4'
+    },
+    {
+      ID: 5,
+      name: 'Máy bom 5'
+    },
+    {
+      ID: 6,
+      name: 'Máy bom 6'
+    },
+    {
+      ID: 7,
+      name: 'Máy bom 7'
+    }
   ];
   constructor(
     private formBuilder: FormBuilder,
@@ -55,9 +55,9 @@ export class GardenComponent implements OnInit {
       hour: [''],
       minute: ['']
     });
-    this._api.getListDevicesWatering().subscribe((res) => {
-      this.wateringDevices = res;
-    });
+    // this._api.getListDevicesWatering().subscribe((res) => {
+    //   this.wateringDevices = res;
+    // });
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function

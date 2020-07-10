@@ -7,22 +7,25 @@ import { from } from 'rxjs';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { RoomComponent } from './room/room.component';
-import { BedRoomComponent } from './room/bed-room/bed-room.component';
-import { GardenComponent } from './garden/garden.component';
-import { DevicesComponent } from './room/devices/devices.component';
+import { HomeComponent } from './utils/pages/home/home.component';
+import { RoomComponent } from './utils/pages/room/room.component';
+import { GardenComponent } from './utils/pages/garden/garden.component';
+import { DevicesComponent } from './utils/pages/room/devices/devices.component';
 
-import { AuthService } from './utils/service/auth.service';
-import { LoginComponent } from './utils/login/login.component';
+import { AuthService } from './utils/services/auth.service';
+import { LoginComponent } from './common/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatCardModule } from '@angular/material/card';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     RoomComponent,
-    BedRoomComponent,
     LoginComponent,
     GardenComponent,
     DevicesComponent
@@ -32,7 +35,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatSlideToggleModule,
+    MatRadioModule,
+    MatIconModule,
+    MatButtonModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

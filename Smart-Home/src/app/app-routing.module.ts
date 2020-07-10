@@ -1,18 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 
 // page component
-import { HomeComponent } from './home/home.component';
-import { RoomComponent } from './room/room.component';
-import { GardenComponent } from './garden/garden.component';
-import { DevicesComponent } from './room/devices/devices.component';
+import { HomeComponent } from './utils/pages/home/home.component';
+import { RoomComponent } from './utils/pages/room/room.component';
+import { GardenComponent } from './utils/pages/garden/garden.component';
+import { DevicesComponent } from './utils/pages/room/devices/devices.component';
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'room', component: RoomComponent },
@@ -26,11 +21,6 @@ const appRoutes: Routes = [
   exports: [
     RouterModule,
     CommonModule,
-    MatCardModule,
-    MatSlideToggleModule,
-    MatRadioModule,
-    MatIconModule,
-    MatButtonModule,
     ReactiveFormsModule
   ]
 })
