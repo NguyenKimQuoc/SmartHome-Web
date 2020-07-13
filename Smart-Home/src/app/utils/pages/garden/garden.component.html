@@ -19,10 +19,10 @@
                         <ul id="ul-device">
                             <li class="col-md-12" *ngFor="let item of wateringDevices">
                                 <div class="row" data-toggle="modal" data-target="#wateringModal"
-                                    (click)="ChangeID(item)">
+                                    (click)="getDataByID(item)">
                                     <div class="col-md-11">
                                         <div>
-                                            <h2>{{item.name}}</h2>
+                                            <h2>{{item.deviceName}}</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -48,7 +48,7 @@
                         <ul class="row" id="ul-device">
                             <li class="col-md-12" *ngFor="let item of dryingdevices">
                                 <div class="row" data-toggle="modal" data-target="#dryingModal"
-                                    (click)="ChangeID(item)">
+                                    (click)="getDataByID(item)">
                                     <div class="col-md-11">
                                         <div>
                                             <h2>{{item.name}}</h2>
@@ -67,10 +67,10 @@
 <div class="modal fade" id="wateringModal" tabindex="-1" role="dialog" aria-labelledby="wateringModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content" role="document">
+        <div class="modal-content" role="document" *ngIf="itemDevice">
             <div class="modal-header">
-                <h2 class="modal-title" id="wateringModalLabel" *ngIf="itemDevice">SETTING OF
-                    "{{itemDevice.name | uppercase}}"</h2>
+                <h2 class="modal-title" id="wateringModalLabel">SETTING OF
+                    "{{itemDevice.deviceName | uppercase}}"</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -78,9 +78,9 @@
             <div class="modal-body">
                 <mat-card-header>
                     <mat-card-title class="align-middle">
-                        <h2>Tưới Tự Động <mat-slide-toggle [checked]="checked" (change)="changed()"
+                        <h2>Tưới Tự Động <mat-slide-toggle [checked]="itemDevice.action == 'on'" (change)="changed($event.checked)"
                                 class="align-middle">
-                                {{autoStatus}}
+                                {{itemDevice.action | uppercase}}
                             </mat-slide-toggle>
                         </h2>
                     </mat-card-title>
@@ -151,7 +151,7 @@
                                         <div class="row">
                                             <div class="col-md-11">
                                                 <div>
-                                                    <h2>{{item.hour}}:{{item.minute}}</h2>
+                                                    <h2>{{item.time}}</h2>
                                                 </div>
                                             </div>
                                         </div>
@@ -165,7 +165,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal"
-                    (click)="setSTT('watering')">Apply</button>
+                    (click)="setSTT(itemDevice)">Apply</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -186,8 +186,8 @@
             <div class="modal-body">
                 <mat-card-header>
                     <mat-card-title>Phơi đồ</mat-card-title>
-                    <mat-slide-toggle [checked]="checked" (change)="changed()">
-                        {{autoStatus}}
+                    <mat-slide-toggle [checked]="" (change)="changed($event.checked)">
+                    
                     </mat-slide-toggle>
                 </mat-card-header>
                 <mat-card-content>
@@ -266,8 +266,8 @@
     </div>
 </div>
 <!--  -->
-<div class="modal fade" id="addtime" tabindex="-1" role="dialog" aria-labelledby="addtimeLabel" aria-hidden="true">
-    <div class="modal-dialog addtime-dialog" role="document">
+<div class="modal fade" id="addtime" tabindex="-1" role="dialog" aria-labelledby="addtimeLabel" aria-hidden="true" style="background-color: rgba(0,0,0,0.4);">
+    <div class="modal-dialog addtime-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="modal-title" id="addtimeLabel">ADD TIME</h2>
@@ -279,12 +279,12 @@
                 <form [formGroup]="formAddTime" (ngSubmit)="addTime()">
                     <label>
                         Time:
-                        <input type="number" formControlName="hour" style="width: 50px;" min="0" max="23">:
-                        <input type="number" formControlName="minute" style="width: 50px;" min="0" max="59">
+                        <ngx-timepicker-field [format]="24" formControlName="time"></ngx-timepicker-field>
                     </label>
                     <br>
-                    <button type="submit" class="btn btn-primary">Add</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!formAddTime.controls['time'].value">Add</button>
                 </form>
+                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

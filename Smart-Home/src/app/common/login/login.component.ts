@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
 
   Login(): void {
     this.auth.loginUser(this.userLogin.value).subscribe(
-      (res) => {
-        console.log(res);
+      (res: any) => {
+        console.log(res.token);
         (<HTMLInputElement>document.getElementById('btn-login')).style.display =
           'none';
       },

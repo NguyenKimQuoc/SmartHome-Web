@@ -1,126 +1,127 @@
 h1 {
-    font-size: 50px;
-    text-align: center; 
-    padding: 20px;
-    color: transparent;
-    background: black;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-    text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
-    margin-block-start: 0;
-    margin-block-end: 0;
+  font-size: 50px;
+  text-align: center;
+  padding: 20px;
+  color: transparent;
+  background: black;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
-.btnAdd{
-    max-width: 100px;
-    height: 100%;
-    padding: 5px 5px;
-    border-radius: 5px;
-    font-size: 15px
+.btnAdd {
+  max-width: 100px;
+  height: 100%;
+  padding: 5px 5px;
+  border-radius: 5px;
+  font-size: 15px;
 }
 
-.btnAdd:hover{
-    background-color: cornflowerblue;
+.btnAdd:hover {
+  background-color: cornflowerblue;
 }
 
-input[type=text] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 10px 0;
-    box-sizing: border-box;
+input[type='text'] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 10px 0;
+  box-sizing: border-box;
 }
 
-.container .modal-body span{
-    font-size: 20px;
+.container .modal-body span {
+  font-size: 20px;
 }
 ul li {
-    /* width: 100%;
+  /* width: 100%;
     margin-top: 10px;
     padding: 10px 10px;
     border: 2px solid cornflowerblue;
     border-radius: 10px;
     background-color: beige;
     list-style: none; */
-    border: 1px solid #ddd;
-    margin-top: -1px; 
-    background-color: #f6f6f6;
-    padding: 12px;
-    text-decoration: none;
-    font-size: 18px;
-    color: black;
-    display: block;
+  border: 1px solid #ddd;
+  margin-top: -1px;
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
 }
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
-ul li:hover{
-    cursor: pointer;
-    background-color: #eee;
+ul li:hover {
+  cursor: pointer;
+  background-color: #eee;
 }
-#ul-device{
-    max-height: 55vh;
-    max-width: 450px;
-    margin-bottom: 10px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    margin: 0 30px;
-    padding-inline-start: 0px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+#ul-device {
+  max-height: 55vh;
+  max-width: 450px;
+  margin-bottom: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 30px;
+  padding-inline-start: 0px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-#ul-timer{
-    max-height: 250px;
-    max-width: 450px;
-    margin-bottom: 10px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    margin: 0 10px;
-    padding-inline-start: 0px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+#ul-timer {
+  max-height: 250px;
+  max-width: 450px;
+  margin-bottom: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 10px;
+  padding-inline-start: 0px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.mat-card{
-    margin: 0 auto;
-    max-width: 500px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.mat-card {
+  margin: 0 auto;
+  max-width: 500px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.card-watering{
-    /* background-image: url(./images/water-05.jpg);
+.card-watering {
+  /* background-image: url(./images/water-05.jpg);
     background-repeat: no-repeat;
     background-size: cover; */
-    background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.7);
 }
-.card-drying{
-    /* background-image: url(./images/sun.jpg);
+.card-drying {
+  /* background-image: url(./images/sun.jpg);
     background-repeat: no-repeat;
     background-size: cover; */
-    background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.7);
 }
-.card-body{
-    padding: 5px 0px;
-    border-radius: 5px;
-    min-height: 450px;
+.card-body {
+  padding: 5px 0px;
+  border-radius: 5px;
+  min-height: 450px;
 }
-.card-item{
-    max-width: 300px;
-    margin: 0 auto;
-    margin-top: 30px;
+.card-item {
+  max-width: 300px;
+  margin: 0 auto;
+  margin-top: 30px;
 }
-.modal-dialog{
-    max-width: 100vw;
-    width: 1000px;
-    margin: 30px auto;
+.modal-dialog {
+  max-width: 100vw;
+  width: 1000px;
+  margin: 30px auto;
 }
-.adddevice-dialog, .addtime-dialog{
-    width: 350px;
+.adddevice-dialog,
+.addtime-dialog {
+  width: 350px;
 }
-.body{
-    /* background-image: url(./images/552587-PK35SC-756.jpg); */
-    background-repeat: no-repeat;
-    min-height: 91vh;
-    min-width: 100vw;
-    background-size: cover;
-    margin-top: -25px;
-    background-position: top;
+.body {
+  /* background-image: url(./images/552587-PK35SC-756.jpg); */
+  background-repeat: no-repeat;
+  min-height: 91vh;
+  min-width: 100vw;
+  background-size: cover;
+  margin-top: -25px;
+  background-position: top;
 }
