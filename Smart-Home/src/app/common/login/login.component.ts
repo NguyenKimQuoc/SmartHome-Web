@@ -1,14 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../../utils/services/auth.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-
+import { MatCalendarCellCssClasses } from '@angular/material/datepicker';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
-  constructor(private auth: AuthService, private fb: FormBuilder) {
+  public hide = true;
+  public hide1 = true;
+  public hide2 = true;
+  submitted = false;
+  constructor(public auth: AuthService, private fb: FormBuilder) {
     this.userLogin = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
@@ -18,13 +23,15 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     // none
   }
-
+  get f() {
+    return this.userLogin.controls;
+  }
   Login(): void {
+    this.submitted = true;
     this.auth.loginUser(this.userLogin.value).subscribe(
       (res: any) => {
         console.log(res.token);
-        (<HTMLInputElement>document.getElementById('btn-login')).style.display =
-          'none';
+        sessionStorage.setItem('token', res.token);
       },
       (error) => {
         console.log(error);
@@ -34,4 +41,9 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+  dateClass = (d: Date): MatCalendarCellCssClasses => {
+    const date = d.getDate();
+    return date === 1 || date === 20 ? 'example-custom-date-class' : '';
+  };
 }

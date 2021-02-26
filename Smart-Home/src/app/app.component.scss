@@ -1,0 +1,22 @@
+.container,.container-fluid{
+    padding: 0;
+}
+
+.time{
+    text-align:  right;
+    padding-right: 20px;
+    margin-top: 5px;
+    /* color: blueviolet; */
+    font-weight: bold !important;
+    font-size: 15px;
+}
+
+.custom-icon-button{
+    
+    background-color: transparent;
+
+    .custom-icon{
+        font-size: 22px;
+    }
+}
+ 

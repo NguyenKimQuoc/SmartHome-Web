@@ -4,17 +4,18 @@ import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { Subscription } from 'rxjs';
 import { IMqttMessage, MqttService } from 'ngx-mqtt';
+import { ApiSettingService } from './apisetting.service';
 @Injectable({
   providedIn: 'root'
 })
 export class GardenDevicesService implements OnDestroy {
-  private Url = 'http://35.197.145.132:3000/api/v1/';
   private header: HttpHeaders;
   private subscription: Subscription;
   constructor(
     private http: HttpClient,
     private _cookieService: CookieService,
-    private _mqttService: MqttService
+    private _mqttService: MqttService,
+    private _setting: ApiSettingService
   ) {
     this.header = new HttpHeaders({
       Authorization: 'Bearer ' + this._cookieService.get('token')
@@ -22,27 +23,24 @@ export class GardenDevicesService implements OnDestroy {
   }
 
   //   loginUser(user: unknown) {
-  //     return this.http.post<unknown>(this.loginUrl, user);
+  //     return this.http.post<unknown>(this.loginurl, user);
   //   }
   public getListDevicesWatering(): Observable<unknown> {
-    return this.http.get<unknown>(this.Url + 'electronicIrrigationSystem', {
+    return this.http.get<unknown>(this._setting.urlgarden, {
       headers: this.header
     });
   }
   public getDeviceWateringByID(ID: unknown): Observable<unknown> {
-    return this.http.get<unknown>(
-      this.Url + 'electronicIrrigationSystem/' + ID,
-      {
-        headers: this.header
-      }
-    );
+    return this.http.get<unknown>(this._setting.urlgarden + ID, {
+      headers: this.header
+    });
   }
   public changeStateDeviceWateringByID(
     ID: unknown,
     state: string
   ): Observable<unknown> {
     return this.http.put<unknown>(
-      this.Url + 'electronicIrrigationSystem/' + ID + '?action=' + state,
+      this._setting.urlgarden + ID + '?action=' + state,
       '',
       {
         headers: this.header

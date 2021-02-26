@@ -1,26 +1,42 @@
 .btn-login {
-    height: 100%;
-    padding: 5px 5px;
-    border-radius: 5px;
-    font-size: 20px
+  height: 100%;
+  padding: 5px 5px;
+  border-radius: 5px;
+  font-size: 20px;
 }
-.btn-login:hover{
-    background-color: cornflowerblue;
-}
-
-input[type=email] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 10px 0;
-    box-sizing: border-box;
-}
-input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 10px 0;
-    box-sizing: border-box;
+.btn-login:hover {
+  background-color: cornflowerblue;
 }
 
-.container .modal-body span{
-    font-size: 20px;
+input[type='email'] {
+  width: 100%;
+  box-sizing: border-box;
+}
+input[type='password'] {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container .modal-body span {
+  font-size: 20px;
+}
+.modal-dialog {
+  width: auto;
+  margin: 30px auto;
+}
+.tab-container {
+  padding-top: 20px;
+}
+.tab-container > * {
+  width: 100%;
+}
+.example-custom-date-class {
+  border-radius: 100%;
+}
+.mat-tab-list .mat-tab-labels .mat-tab-label-active {
+  background-color: #7f8de0;
+  color: white;
+}
+.cdk-overlay-container {
+  z-index: 2000 !important;
 }

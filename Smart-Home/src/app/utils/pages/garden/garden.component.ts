@@ -3,14 +3,14 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { GardenDevicesService } from '../../services/garden.service';
-import { IMqttMessage } from 'ngx-mqtt';
+import { DevicesService } from '../../services/devices.service';
+import { SocketioService } from '../../services/socketio.service';
 import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-garden',
   templateUrl: './garden.component.html',
   styleUrls: ['./garden.component.css'],
-  providers: [GardenDevicesService]
+  providers: [DevicesService]
 })
 export class GardenComponent implements OnInit {
   formAddDevice: FormGroup;
@@ -45,7 +45,8 @@ export class GardenComponent implements OnInit {
   itemDevice: any = []; // lưu data item được chọn để setting
   constructor(
     private formBuilder: FormBuilder,
-    public _api: GardenDevicesService
+    public _api: DevicesService,
+    public socket: SocketioService
   ) {
     this.formAddDevice = this.formBuilder.group({
       name: [''],
@@ -58,11 +59,14 @@ export class GardenComponent implements OnInit {
     this._api.getListDevicesWatering().subscribe((res: any) => {
       this.wateringDevices = res.data;
     });
+    socket.on('change').subscribe((data: any) => {
+      console.log(data);
+    });
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   ngOnInit(): void {
-    this.subscribeToTopic();
+    // this.subscribeToTopic();
   }
   changed(status: boolean) {
     this.itemDevice.action = status ? 'on' : 'off';
@@ -94,7 +98,6 @@ export class GardenComponent implements OnInit {
   // Set các trạng thái tại thiết bị đó(dùng chung cho drying và watering)
   setSTT(value: any) {
     console.log(value.type);
-    this._api.unsafePublish('myTopic', 'Send from angular');
     if (value.type == 'watering') {
       console.log(value.action);
       this._api
@@ -109,12 +112,12 @@ export class GardenComponent implements OnInit {
     console.log(this.formAddTime.value);
     this.timerWatering.push(this.formAddTime.value);
   }
-  private subscribeToTopic() {
-    this.subscription = this._api
-      .subscribeTopic('myTopic')
-      .subscribe((data: IMqttMessage) => {
-        const item = data.payload.toString();
-        console.log(item);
-      });
-  }
+  // private subscribeToTopic() {
+  //   this.subscription = this._api
+  //     .subscribeTopic('myTopic')
+  //     .subscribe((data: IMqttMessage) => {
+  //       const item = data.payload.toString();
+  //       console.log(item);
+  //     });
+  // }
 }

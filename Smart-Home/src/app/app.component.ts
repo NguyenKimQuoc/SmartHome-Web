@@ -1,12 +1,18 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'Smart-Home';
+
+  constructor(private translate: TranslateService) {
+    translate.setDefaultLang('vi');
+  }
+
   ngOnInit(): void {
     setInterval(this.clock, 1000);
   }
@@ -31,5 +37,14 @@ export class AppComponent {
     // Hiện thị thời gian lên thẻ div id="clock" với phương thức innerHTML
     document.getElementById('clock').innerHTML =
       hour + ' : ' + minute + ' : ' + second;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  toggleLanguage() {
+    if (this.translate.getDefaultLang() === 'en') {
+      this.translate.setDefaultLang('vi');
+    } else if (this.translate.getDefaultLang() === 'vi') {
+      this.translate.setDefaultLang('en');
+    }
   }
 }

@@ -6,11 +6,11 @@
             <mat-card class="col-md-6 card-watering">
                 <div class="card-body">
                     <mat-card-header class="row">
-                        <h2 class="col-md-8" style="color: black;text-shadow: 2px 2px 4px rgb(141, 137, 137);">
+                        <h2 class="col-md-8 col-sm-6 col-xs-6" style="color: black;text-shadow: 2px 2px 4px rgb(141, 137, 137);">
                             <mat-icon class="align-middle">list</mat-icon> WATERING
                         </h2>
                         <Button data-toggle="modal" data-target="#adddevice"
-                            class="btn btn-primary btnAdd col-md-4" (click)="DeviceCate='watering'">
+                            class="btn btn-primary btnAdd col-md-4 col-sm-6 col-xs-6" (click)="DeviceCate='watering'">
                             <span class="align-middle">Add </span>
                             <mat-icon class="align-middle">library_add</mat-icon>
                         </Button>
@@ -35,11 +35,11 @@
             <mat-card class="col-md-6 card-drying">
                 <div class="card-body">
                     <mat-card-header class="row">
-                        <h2 class="col-md-8" style="color: black; text-shadow: 2px 2px 4px rgb(141, 137, 137);">
+                        <h2 class="col-md-8 col-sm-6 col-xs-6" style="color: black; text-shadow: 2px 2px 4px rgb(141, 137, 137);">
                             <mat-icon class="align-middle">list</mat-icon> DRYING
                         </h2>
                         <Button data-toggle="modal" data-target="#adddevice"
-                            class="btn btn-primary btnAdd col-md-4" (click)="DeviceCate='drying'">
+                            class="btn btn-primary btnAdd col-md-4 col-sm-6 col-xs-6" (click)="DeviceCate='drying'">
                             <span class="align-middle">Add </span>
                             <mat-icon class="align-middle">library_add</mat-icon>
                         </Button>
@@ -164,9 +164,11 @@
                 </mat-card-content>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-danger mr-auto" data-dismiss="modal" style="float:left"
+                    >Delete Device</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal"
-                    (click)="setSTT(itemDevice)">Apply</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    (click)="setSTT(itemDevice)">Save Changes</button>
             </div>
         </div>
     </div>
@@ -232,9 +234,11 @@
                 </mat-card-content>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-danger mr-auto" data-dismiss="modal" style="float:left"
+                    >Delete Device</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal"
-                    (click)="setSTT('drying')">Apply</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    (click)="setSTT(itemDevice)">Save Changes</button>
             </div>
         </div>
     </div>

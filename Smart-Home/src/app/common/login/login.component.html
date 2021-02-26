@@ -1,34 +1,103 @@
 <!-- Modal -->
-<Button id="btn-login" data-toggle="modal" data-target="#modal-login" class="btn btn-primary">
-  <span class="align-middle">Login </span>  
-  <mat-icon class="align-middle">account_box</mat-icon>
+<Button *ngIf="!auth.isLoggedIn()" id="btn-login" data-toggle="modal" data-target="#modal-login"
+  class="btn btn-primary">
+  <span class="align-middle">{{'Login' | translate}} </span>
+  <mat-icon class="align-middle">login</mat-icon>
 </Button>
-<div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<span *ngIf="auth.isLoggedIn()">Hello User</span>
+<div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-      <h2 class="modal-title" id="exampleModalLabel">Login</h2>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      </div>
       <div class="modal-body">
-        <form [formGroup]="userLogin">
-          <span>Username:</span>
-          <input type="email" formControlName="email">
-          <span>Password:</span>
-          <input type="password" formControlName="password">
-        </form>
-        <!-- <span>Username:</span>
-        <input type="email" id="email" name="email">
-        <span>Password:</span>
-        <input type="password" id="password" name="password"> -->
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="Login()" data-dismiss="modal">Login</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <mat-tab-group mat-align-tabs="center">
+          <mat-tab label="Login">
+            <div class="tab-container">
+              <mat-form-field>
+                <input matInput placeholder="{{ 'Username' | translate}}">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+              <button mat-raised-button color="primary">Login</button>
+            </div>
+          </mat-tab>
+          <mat-tab label="Register">
+            <div class="tab-container">
+              <table class="tab-container1" cellspacing="0">
+                <tr>
+                  <td>
+                    <mat-form-field class="tab-container1">
+                      <input matInput placeholder="First Name">
+                    </mat-form-field>
+                  </td>
+                  <td>
+                    <mat-form-field class="tab-container1">
+                      <input matInput placeholder="Last Name">
+                    </mat-form-field>
+                  </td>
+                </tr>
+              </table>
+              <mat-form-field style="width: 30%;">
+                <mat-label>Date Of Birth</mat-label>
+                <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
+              </mat-form-field>
+              <br>
+              <mat-form-field style="width: 20%;">
+                <mat-label>Sex</mat-label>
+                <mat-select>
+                  <mat-option value="male">Male</mat-option>
+                  <mat-option value="female">Female</mat-option>
+                  <mat-option value="other">Other</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Enter your email" required>
+
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <span matPrefix>+84 &nbsp;</span>
+                <input type="number" matInput placeholder="Telephone">
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Username">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide1 ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide1 = !hide1" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide1">
+                  <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Enter your comfirm password</mat-label>
+                <input matInput [type]="hide2 ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide2">
+                  <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+
+              
+              <button mat-raised-button color="primary">Register</button>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
       </div>
     </div>
   </div>
-</div>
-<!-- //Modal -->
+  <!-- //Modal -->

@@ -10,27 +10,30 @@
           <li class="nav-item active">
             <a class="nav-link" routerLink="/home">
               <mat-icon class="align-middle">home</mat-icon>
-              <span class="align-middle"> HOME</span>
+              <span class="align-middle">{{'HOME' | translate}}</span>
             </a>
           </li>
-      <!-- page room -->
+          <!-- page room -->
           <li class="nav-item">
             <a class="nav-link" routerLink="/room">
-              <span class="align-middle">ROOM</span>
+              <span class="align-middle">{{'ROOM' | translate}}</span>
             </a>
           </li>
-      <!-- page device -->
+          <!-- page device -->
           <li class="nav-item">
             <a class="nav-link" routerLink="/garden">
-              <span class="align-middle">GARDEN</span>
+              <span class="align-middle">{{'GARDEN' | translate}}</span>
             </a>
           </li>
         </ul>
         <!-- Login -->
         
-      
-      
         <app-login></app-login>
+        <div class="pl-3">
+          <button mat-mini-fab class="custom-icon-button" color="primary" (click)="toggleLanguage()">
+            <mat-icon fontSet="fa" color="primary" class="custom-icon" fontIcon="fa-language"></mat-icon>
+          </button>
+        </div>
       
       </div>
     </nav>
